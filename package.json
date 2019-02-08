@@ -1,0 +1,58 @@
+{
+  "name": "blockstack-filebrowser-extension",
+  "version": "0.0.0",
+  "description": "A chrome extension for blockstack",
+  "scripts": {
+    "dev": "node scripts/dev",
+    "build": "node scripts/build",
+    "compress": "node scripts/compress",
+    "compress-keygen": "crx keygen",
+    "clean": "rimraf build/ dev/ *.zip *.crx"
+  },
+  "keywords": [
+    "chrome",
+    "extension",
+    "react",
+    "redux",
+    "hot reload",
+    "webpack",
+    "boilerplate"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-decorators": "^7.3.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "cross-env": "^3.1.3",
+    "crx": "^3.0.3",
+    "css-loader": "^0.25.0",
+    "css-modules-require-hook": "^4.0.5",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "minimist": "^1.2.0",
+    "postcss-loader": "^1.2.1",
+    "pug-cli": "^1.0.0-alpha6",
+    "rimraf": "^2.4.3",
+    "shelljs": "^0.7.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^3.10.0",
+    "webpack-hot-middleware": "^2.10.0",
+    "webpack-httpolyglot-server": "^0.3.0"
+  },
+  "dependencies": {
+    "blockstack": "^18.2.1",
+    "bluebird": "^3.5.3",
+    "mobx": "^5.9.0",
+    "mobx-react": "^5.4.3",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "styled-components": "^4.1.3"
+  }
+}
