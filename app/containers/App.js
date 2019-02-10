@@ -3,7 +3,7 @@ import { observer, inject } from 'mobx-react';
 import styled from 'styled-components';
 import Browser from './Browser';
 import Spinner from '../components/Spinner';
-import ErrorContainer from './ErrorContainer';
+import ErrorScreen from '../components/ErrorScreen';
 
 const Container = styled.div`
   position: relative;
@@ -37,15 +37,21 @@ class _App extends Component {
 
     if (AppStore.error) {
       return (
-        <ErrorContainer />
+        <ErrorScreen />
+      );
+    }
+
+    if (isLoading) {
+      return (
+        <SpinnerContainer>
+          <Spinner />
+        </SpinnerContainer>
       );
     }
 
     return (
       <Container>
-        {isLoading
-          ? <SpinnerContainer><Spinner /></SpinnerContainer>
-          : <Browser data={AppStore.files} />}
+        <Browser data={AppStore.files} />
       </Container>
     );
   }

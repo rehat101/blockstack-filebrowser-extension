@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
@@ -22,19 +22,19 @@ const Wrapper = styled.section`
 
 `;
 
-const Emoji = styled.span`
+const Emoji = styled.div`
   font-size: 42px;
 `;
 
-class ErrorContainer extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <Emoji role="img" aria-label="sad">😔</Emoji>
-        <h1>Looks like this page doesn’t run on blockstack.</h1>
-      </Wrapper>
-    );
-  }
-}
+const ErrorScreen = () => {
+  return (
+    <Wrapper>
+      <Emoji>
+        <span role="img" aria-label="sad">😔</span>
+      </Emoji>
+      <h1>Looks like this page doesn’t run on blockstack.</h1>
+    </Wrapper>
+  );
+};
 
-export default ErrorContainer;
+export default ErrorScreen;
