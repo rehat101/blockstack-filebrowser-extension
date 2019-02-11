@@ -11,16 +11,9 @@ class _App extends Component {
 
   render() {
     const { AppStore } = this.props;
-
-    if (AppStore.error) {
-      return (
-        <ErrorScreen />
-      );
-    }
-
     return (
       <React.Fragment>
-        <Browser />
+        {AppStore.error ? <ErrorScreen /> : <Browser />}
       </React.Fragment>
     );
   }

@@ -1,15 +1,16 @@
 import { observable, action } from 'mobx';
-import { getCurrentTab, getHubConfig } from '../utils';
+import { getCurrentTab, getBlockConfig } from '../utils';
 
 class AppStore {
   @observable error = false;
 
   @action async loadData() {
     try {
-      window.localStorage.clear();
       const tabInfo = await getCurrentTab();
-      const config = await getHubConfig(tabInfo.id);
-      window.localStorage.setItem('blockstack-gaia-hub-config', config);
+      const HubConfig = await getBlockConfig(
+        tabInfo.id,
+        'localStorage.getItem("blockstack-gaia-hub-config")');
+      window.localStorage.setItem('blockstack-gaia-hub-config', HubConfig);
     } catch (err) {
       this.error = true;
       console.error(err);

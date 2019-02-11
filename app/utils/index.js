@@ -15,11 +15,11 @@ export const getCurrentTab = () => {
 };
 
 
-export const getHubConfig = (tabId) => {
+export const getBlockConfig = (tabId, script) => {
   if (!tabId) throw new Error('Please define a tab id');
 
   return new Promise((resolve, reject) => {
-    chrome.tabs.executeScript(tabId, { code: 'localStorage.getItem("blockstack-gaia-hub-config")' },
+    chrome.tabs.executeScript(tabId, { code: script },
       (res) => {
         if (!res[0]) {
           reject(new Error('Cannot find gaia hub config'));
@@ -29,4 +29,3 @@ export const getHubConfig = (tabId) => {
       });
   });
 };
-

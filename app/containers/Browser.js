@@ -15,36 +15,20 @@ const SpinnerContainer = styled.div`
 `;
 
 class _Browser extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isLoading: false
-    };
-  }
-
   async componentDidMount() {
     const { BrowserStore } = this.props;
-    this.setState({ isLoading: true });
     await BrowserStore.loadFiles();
-    this.setState({ isLoading: false });
   }
 
   render() {
     const { BrowserStore } = this.props;
-    const { isLoading } = this.state;
-
-    if (isLoading) {
-      return (
-        <SpinnerContainer>
-          <Spinner />
-        </SpinnerContainer>
-      );
-    }
 
     return (
       <Container>
-        <BrowserList data={BrowserStore.files} />
+        { BrowserStore.isLoading
+          ? <SpinnerContainer><Spinner /></SpinnerContainer>
+          : <BrowserList data={BrowserStore.files} />
+        }
       </Container>
     );
   }
