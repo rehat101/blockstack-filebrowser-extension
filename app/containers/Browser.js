@@ -1,78 +1,55 @@
 import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 import styled from 'styled-components';
-import Button from '../StyledComponents/button';
+import BrowserList from '../components/BrowserList';
+import Spinner from '../components/Spinner';
 
-const Wrapper = styled.section`
-  color: white;
+const Container = styled.div`
   position: relative;
 `;
 
-const Header = styled.header`
-  display: flex;
-  align-items: center;
-  padding: 20px 20px 0 25px;
-  font-size: 18px;
+const SpinnerContainer = styled.div`
+  position: absolute;
+  top: 220px;
+  left: 160px;
 `;
 
-const List = styled.ul`
-  margin-bottom: 10px;
-  padding: 0;
-  margin: 0;
-  padding: 20px 20px 40px 25px;
-`;
+class _Browser extends Component {
+  constructor(props) {
+    super(props);
 
-const Item = styled.li`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  cursor: pointer;
-  background-color: #202228;
-  border-radius: 4px;
-  margin-bottom: 10px;
-
-  &:hover {
-    background-color: #141516;
+    this.state = {
+      isLoading: false
+    };
   }
-`;
 
-const ItemName = styled.div`
-  width: 80%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;
+  async componentDidMount() {
+    const { BrowserStore } = this.props;
+    this.setState({ isLoading: true });
+    await BrowserStore.loadFiles();
+    this.setState({ isLoading: false });
+  }
 
-const Size = styled.p`
-  opacity: 0.5;
-  margin: 0;
-`;
-
-class Browser extends Component {
   render() {
-    const { data } = this.props;
+    const { BrowserStore } = this.props;
+    const { isLoading } = this.state;
+
+    if (isLoading) {
+      return (
+        <SpinnerContainer>
+          <Spinner />
+        </SpinnerContainer>
+      );
+    }
+
     return (
-      <Wrapper>
-        <Header>
-          {data.length}
-          {' '}
-          total files
-        </Header>
-        <List>
-          {
-            data.map((value) => {
-              return (
-                <Item key={value}>
-                  <ItemName>{value}</ItemName>
-                  <Size>0kb</Size>
-                </Item>
-              );
-            })
-          }
-        </List>
-        <Button>Add File</Button>
-      </Wrapper>
+      <Container>
+        <BrowserList data={BrowserStore.files} />
+      </Container>
     );
   }
 }
+
+const Browser = inject('BrowserStore')(observer(_Browser));
 
 export default Browser;
