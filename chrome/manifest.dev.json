@@ -16,7 +16,8 @@
     "inject.html"
   ],
   "background": {
-    "page": "background.html"
+    "page": "background.html",
+    "persistent": false
   },
   "permissions": [
     "contextMenus",

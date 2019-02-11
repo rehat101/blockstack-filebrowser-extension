@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Button from '../StyledComponents/button';
 
 const Wrapper = styled.section`
   color: white;
@@ -7,7 +8,6 @@ const Wrapper = styled.section`
 `;
 
 const Header = styled.header`
-  font-family: SFProText-Regular, sans-serif;
   display: flex;
   align-items: center;
   padding: 20px 20px 0 25px;
@@ -15,7 +15,6 @@ const Header = styled.header`
 `;
 
 const List = styled.ul`
-  font-family: Relative-Mono10Pitch, monospace;
   margin-bottom: 10px;
   padding: 0;
   margin: 0;
@@ -48,24 +47,6 @@ const Size = styled.p`
   margin: 0;
 `;
 
-const Button = styled.button`
-  font-family: Relative-Mono10Pitch, monospace;
-  background-color: #2523FF;
-  border: 0;
-  width: 100%;
-  color: white;
-  height: 46px;
-  font-size: 16px;
-  position: fixed;
-  bottom: 0;
-  transition: background-color 0.2s ease-in;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #110FE0;
-  }
-`;
-
 class Browser extends Component {
   render() {
     const { data } = this.props;
@@ -78,11 +59,11 @@ class Browser extends Component {
         </Header>
         <List>
           {
-            data.map((value, key) => {
+            data.map((value) => {
               return (
-                <Item key={key}>
+                <Item key={value}>
                   <ItemName>{value}</ItemName>
-                  <Size>2kb</Size>
+                  <Size>0kb</Size>
                 </Item>
               );
             })
