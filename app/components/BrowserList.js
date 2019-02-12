@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Button from '../StyledComponents/button';
 
 const Wrapper = styled.section`
   color: white;
   position: relative;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 const Header = styled.header`
@@ -47,29 +53,33 @@ const Size = styled.p`
   margin: 0;
 `;
 
-const BrowserList = ({ data }) => {
-  return (
-    <Wrapper>
-      <Header>
-        {data.length}
-        {' '}
-        total files
-      </Header>
-      <List>
-        {
-          data.map((value) => {
-            return (
-              <Item key={value}>
-                <ItemName>{value}</ItemName>
-                <Size>0kb</Size>
-              </Item>
-            );
-          })
-        }
-      </List>
-      <Button>Add File</Button>
-    </Wrapper>
-  );
-};
+class BrowserList extends Component {
+  render() {
+    const { data } = this.props;
+
+    return (
+      <Wrapper>
+        <Header>
+          {data.length}
+          {' '}
+          total files
+        </Header>
+        <List>
+          {
+            data.map(value => (
+              <Link to="/users">
+                <Item key={value}>
+                  <ItemName>{value}</ItemName>
+                  <Size>0kb</Size>
+                </Item>
+              </Link>
+            ))
+          }
+        </List>
+        <Button>Add File</Button>
+      </Wrapper>
+    );
+  }
+}
 
 export default BrowserList;

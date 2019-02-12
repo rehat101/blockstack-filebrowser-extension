@@ -26,15 +26,13 @@ const Emoji = styled.div`
   font-size: 42px;
 `;
 
-const ErrorScreen = () => {
-  return (
-    <Wrapper>
-      <Emoji>
-        <span role="img" aria-label="sad">😔</span>
-      </Emoji>
-      <h1>Looks like this page doesn’t run on blockstack.</h1>
-    </Wrapper>
-  );
-};
+const ErrorScreen = () => (
+  <Wrapper>
+    <Emoji>
+      <span role="img" aria-label="sad">😔</span>
+    </Emoji>
+    <h1>Looks like this page doesn’t run on blockstack.</h1>
+  </Wrapper>
+);
 
 export default ErrorScreen;

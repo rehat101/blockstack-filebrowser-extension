@@ -9,7 +9,8 @@ class AppStore {
       const tabInfo = await getCurrentTab();
       const HubConfig = await getBlockConfig(
         tabInfo.id,
-        'localStorage.getItem("blockstack-gaia-hub-config")');
+        'localStorage.getItem("blockstack-gaia-hub-config")'
+      );
       window.localStorage.setItem('blockstack-gaia-hub-config', HubConfig);
     } catch (err) {
       this.error = true;
@@ -17,5 +18,6 @@ class AppStore {
     }
   }
 }
+
 
 export default new AppStore();
