@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import { MemoryRouter, Switch, Route } from 'react-router-dom';
 import Browser from './Browser';
 import ErrorScreen from '../components/ErrorScreen';
+import Spinner from '../components/Spinner';
 
 class _App extends Component {
   async componentDidMount() {
     const { AppStore } = this.props;
-    await AppStore.loadData();
+    await AppStore.loadHubInfo();
   }
 
   render() {
     const { AppStore } = this.props;
 
-    if (AppStore.error) {
+    if (AppStore.hasError) {
       return (<ErrorScreen />);
     }
 
+    if (AppStore.isLoading) {
+      return (<Spinner />);
+    }
+
     return (
-      <MemoryRouter>
-        <Switch>
-          <Route exact path="/" component={Browser} />
-          <Route path="/users" render={() => <p>Hello</p>} />
-        </Switch>
-      </MemoryRouter>
+      <React.Fragment>
+        <Browser />
+      </React.Fragment>
     );
   }
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background-color: #2523FF;
+  background-color: ${props => props.color};
   border: 0;
   width: 100%;
   color: white;
@@ -13,7 +13,7 @@ const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #110FE0;
+    opacity: 0.8;
   }
 `;
 

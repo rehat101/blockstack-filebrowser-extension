@@ -16,7 +16,8 @@
     "inject.html"
   ],
   "background": {
-    "page": "background.html"
+    "page": "background.html",
+    "persistent": false
   },
   "permissions": [
     "contextMenus",
@@ -27,5 +28,5 @@
     "*://localhost/",
     "<all_urls>"
   ],
-  "content_security_policy": "default-src 'self'; script-src 'self' http://localhost:3000 https://localhost:3000 'unsafe-eval'; connect-src https://hub.blockstack.org/ ws://localhost:3000 http://localhost:3000 https://localhost:3000; style-src * 'unsafe-inline' 'self' blob:; img-src 'self' data:;"
+  "content_security_policy": "default-src 'self'; script-src 'self' http://localhost:3000 https://localhost:3000 'unsafe-eval'; connect-src https://gaia.blockstack.org/ https://hub.blockstack.org/ ws://localhost:3000 http://localhost:3000 https://localhost:3000; style-src * 'unsafe-inline' 'self' blob:; img-src 'self' data:;"
 }

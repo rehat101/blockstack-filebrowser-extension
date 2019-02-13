@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import styled from 'styled-components';
-import BrowserList from '../components/BrowserList';
+import FileList from '../components/FileList';
 import Spinner from '../components/Spinner';
-
-const Container = styled.div`
-  position: relative;
-`;
-
-const SpinnerContainer = styled.div`
-  position: absolute;
-  top: 220px;
-  left: 160px;
-`;
 
 class _Browser extends Component {
   async componentDidMount() {
@@ -22,14 +11,13 @@ class _Browser extends Component {
 
   render() {
     const { BrowserStore } = this.props;
-
     return (
-      <Container>
+      <React.Fragment>
         { BrowserStore.isLoading
-          ? <SpinnerContainer><Spinner /></SpinnerContainer>
-          : <BrowserList data={BrowserStore.files} />
+          ? <Spinner />
+          : <FileList data={BrowserStore.files} />
         }
-      </Container>
+      </React.Fragment>
     );
   }
 }

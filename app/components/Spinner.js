@@ -1,43 +1,39 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const Spinner = props => (
-  <svg width="9em" height="9em" viewBox="0 0 100 100" {...props}>
-    <defs>
-      <linearGradient
-        x1="8.042%"
-        y1="0%"
-        x2="65.682%"
-        y2="23.865%"
-        id="prefix__a"
-      >
-        <stop stopColor="#fff" stopOpacity={0} offset="0%" />
-        <stop stopColor="#fff" stopOpacity={0.631} offset="63.146%" />
-        <stop stopColor="#fff" offset="100%" />
-      </linearGradient>
-    </defs>
-    <g transform="rotate(-3.056 37.244 -.244)" fill="none" fillRule="evenodd">
-      <path d="M36 18c0-9.94-8.06-18-18-18" stroke="url(#prefix__a)">
-        <animateTransform
-          attributeName="transform"
-          type="rotate"
-          from="0 18 18"
-          to="360 18 18"
-          dur="0.9s"
-          repeatCount="indefinite"
-        />
-      </path>
-      <circle fill="#fff" cx={36} cy={18} r={1}>
-        <animateTransform
-          attributeName="transform"
-          type="rotate"
-          from="0 18 18"
-          to="360 18 18"
-          dur="0.9s"
-          repeatCount="indefinite"
-        />
-      </circle>
-    </g>
-  </svg>
-);
+const Text = styled.div`
+  font-size: 80px;
+  font-weight: 600;
+  text-align: center;
+  position: absolute;
+  top: 30vh;
+  right: 0;
+  left: 0;
+  color: white;
 
-export default Spinner;
+  &:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-animation: ellipsis steps(4,end) 900ms infinite;
+    animation: ellipsis steps(4,end) 900ms infinite;
+    content: " ...";
+    width: 0px;
+  }
+
+  @keyframes ellipsis {
+    to {
+      width: 1.25em;
+    }
+  }
+
+  @-webkit-keyframes ellipsis {
+    to {
+      width: 1.25em;
+    }
+  }
+`;
+
+export default function Spinner() {
+  return (<Text />);
+}

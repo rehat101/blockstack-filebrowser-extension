@@ -4,11 +4,10 @@ import { listFiles } from 'blockstack';
 class BrowserStore {
   @observable files = [];
 
-  @observable isLoading = false;
+  @observable isLoading = true;
 
   @action async loadFiles() {
     try {
-      this.isLoading = true;
       const files = [];
       await listFiles(name => files.push(name));
       this.files = files;
