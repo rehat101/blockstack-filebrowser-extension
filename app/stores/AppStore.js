@@ -4,8 +4,6 @@ import { getCurrentTab, getBlockConfig } from '../utils';
 class AppStore {
   @observable hasError = false;
 
-  @observable isLoading = true;
-
   @action async loadHubInfo() {
     try {
       window.localStorage.clear();
@@ -20,7 +18,6 @@ class AppStore {
       );
       window.localStorage.setItem('blockstack-gaia-hub-config', HubConfig);
       window.localStorage.setItem('blockstack', userConfig);
-      this.isLoading = false;
     } catch (err) {
       this.hasError = true;
       console.error(err);

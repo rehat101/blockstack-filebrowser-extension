@@ -14,30 +14,27 @@ const Item = styled.li`
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+`;
 
-  span:first-child {
-    color: #606D73;
-    margin-right: 20px;
-    text-align: right;
-    width: 50px;
-  }
+const ItemType = styled.span`
+  color: #606D73;
+  width: 20%;
 `;
 
 class FileInfo extends React.Component {
   render() {
     const { data, name } = this.props;
-
     return (
       <React.Fragment>
         <Wrapper>
           <WrapperHeader>General</WrapperHeader>
           <List>
             <Item>
-              <span>name:</span>
+              <ItemType>name:</ItemType>
               <span>{name}</span>
             </Item>
             <Item>
-              <span>type:</span>
+              <ItemType>type:</ItemType>
               <span>{data.contentType}</span>
             </Item>
           </List>
