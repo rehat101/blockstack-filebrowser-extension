@@ -34,6 +34,6 @@ const Text = styled.div`
   }
 `;
 
-export default function Spinner() {
-  return (<Text />);
-}
+const Spinner = () => <Text />;
+
+export default Spinner;

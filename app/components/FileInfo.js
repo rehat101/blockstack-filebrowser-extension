@@ -21,29 +21,24 @@ const ItemType = styled.span`
   width: 20%;
 `;
 
-class FileInfo extends React.Component {
-  render() {
-    const { data, name } = this.props;
-    return (
-      <React.Fragment>
-        <Wrapper>
-          <WrapperHeader>General</WrapperHeader>
-          <List>
-            <Item>
-              <ItemType>name:</ItemType>
-              <span>{name}</span>
-            </Item>
-            <Item>
-              <ItemType>type:</ItemType>
-              <span>{data.contentType}</span>
-            </Item>
-          </List>
-        </Wrapper>
-        <Link to="/"><Button color="#606D73">Back</Button></Link>
-      </React.Fragment>
-    );
-  }
-}
+const FileInfo = ({ data, name }) => (
+  <React.Fragment>
+    <Wrapper>
+      <WrapperHeader>General</WrapperHeader>
+      <List>
+        <Item>
+          <ItemType>name:</ItemType>
+          <span>{name}</span>
+        </Item>
+        <Item>
+          <ItemType>type:</ItemType>
+          <span>{data.contentType}</span>
+        </Item>
+      </List>
+    </Wrapper>
+    <Link to="/"><Button color="#606D73">Back</Button></Link>
+  </React.Fragment>
+);
 
 
 export default FileInfo;

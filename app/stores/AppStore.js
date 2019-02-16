@@ -4,7 +4,8 @@ import { getCurrentTab, getBlockConfig } from '../utils';
 class AppStore {
   @observable hasError = false;
 
-  @action async loadHubInfo() {
+  @action
+  async loadHubInfo() {
     try {
       window.localStorage.clear();
       const tabInfo = await getCurrentTab();
