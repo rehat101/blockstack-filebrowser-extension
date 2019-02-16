@@ -28,6 +28,7 @@ const Item = styled.li`
 const ItemName = styled.div`
   width: 80%;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
 `;
 
@@ -53,14 +54,14 @@ const FileList = ({ data }) => (
             >
               <Item>
                 <ItemName>{value}</ItemName>
-                <Size />
+                <Size>5kb</Size>
               </Item>
             </Link>
           ))
         }
       </List>
     </Wrapper>
-    <Button color="#2523FF">Add File</Button>
+    { /* <Button color="#2523FF">Add File</Button> */ }
   </React.Fragment>
 );
 

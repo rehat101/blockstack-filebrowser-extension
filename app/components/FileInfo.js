@@ -11,14 +11,18 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 60px 1fr;
   margin-bottom: 10px;
 `;
 
 const ItemType = styled.span`
   color: #606D73;
   width: 20%;
+`;
+
+const ItemValue = styled.span`
+  word-break: break-all;
 `;
 
 const FileInfo = ({ data, name }) => (
@@ -28,11 +32,11 @@ const FileInfo = ({ data, name }) => (
       <List>
         <Item>
           <ItemType>name:</ItemType>
-          <span>{name}</span>
+          <ItemValue>{name}</ItemValue>
         </Item>
         <Item>
           <ItemType>type:</ItemType>
-          <span>{data.contentType}</span>
+          <ItemValue>{data.contentType}</ItemValue>
         </Item>
       </List>
     </Wrapper>
