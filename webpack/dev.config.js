@@ -5,7 +5,6 @@ const host = 'localhost';
 const port = 3000;
 
 const baseDevConfig = () => ({
-  devtool: 'eval-cheap-module-source-map',
   entry: {
     app: [path.join(__dirname, '../chrome/extension/app')],
     background: [path.join(__dirname, '../chrome/extension/background')],
@@ -18,16 +17,12 @@ const baseDevConfig = () => ({
     noInfo: true,
     headers: { 'Access-Control-Allow-Origin': '*' }
   },
-  hotMiddleware: {
-    path: '/js/__webpack_hmr'
-  },
   output: {
     path: path.join(__dirname, '../dev/js'),
     filename: '[name].bundle.js',
     chunkFilename: '[id].chunk.js'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.IgnorePlugin(/[^/]+\/[\S]+.prod$/),
     new webpack.DefinePlugin({
@@ -46,19 +41,6 @@ const baseDevConfig = () => ({
     }]
   }
 });
-
-// const injectPageConfig = baseDevConfig();
-// injectPageConfig.entry = [
-//   customPath,
-//   path.join(__dirname, '../chrome/extension/inject')
-// ];
-// delete injectPageConfig.hotMiddleware;
-// delete injectPageConfig.module.rules[0].options;
-// injectPageConfig.plugins.shift(); // remove HotModuleReplacementPlugin
-// injectPageConfig.output = {
-//   path: path.join(__dirname, '../dev/js'),
-//   filename: 'inject.bundle.js',
-// };
 
 const appConfig = baseDevConfig();
 

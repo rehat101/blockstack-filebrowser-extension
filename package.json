@@ -9,15 +9,6 @@
     "compress-keygen": "crx keygen",
     "clean": "rimraf build/ dev/ *.zip *.crx"
   },
-  "keywords": [
-    "chrome",
-    "extension",
-    "react",
-    "redux",
-    "hot reload",
-    "webpack",
-    "boilerplate"
-  ],
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -37,7 +28,6 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "minimist": "^1.2.0",
-    "postcss-loader": "^1.2.1",
     "pug-cli": "^1.0.0-alpha6",
     "rimraf": "^2.4.3",
     "shelljs": "^0.7.0",
