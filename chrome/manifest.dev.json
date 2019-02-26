@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "name": "blockstack-filebrowser-extension",
   "manifest_version": 2,
-  "description": "A filebrowser for your gaia hub",
+  "description": "A chrome extension for exploring blockstack's gaia hub",
   "browser_action": {
     "default_title": "",
     "default_popup": "popup.html"
