@@ -1,6 +1,6 @@
 # unofficial-blockstack-file-explorer
 
-A chrome extension to explore your gaia hub on blockstack
+A chrome extension for exploring blockstack's gaia hub
 
 ## How to run
 `npm install` - install all dependecies
