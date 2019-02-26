@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { observer, inject } from 'mobx-react';
 import Browser from './Browser';
 import ErrorScreen from '../components/ErrorScreen';
 import Spinner from '../components/Spinner';
@@ -59,6 +58,6 @@ class _App extends Component {
   }
 }
 
-const App = inject('AppStore')(observer(_App));
+const App = _App;
 
 export default App;
