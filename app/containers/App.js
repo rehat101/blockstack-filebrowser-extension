@@ -3,27 +3,47 @@ import { observer, inject } from 'mobx-react';
 import Browser from './Browser';
 import ErrorScreen from '../components/ErrorScreen';
 import Spinner from '../components/Spinner';
+import { getCurrentTab, getBlockConfig } from '../utils';
 
 class _App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isLoading: true
+      isLoading: true,
+      hasError: false
     };
   }
 
   async componentDidMount() {
-    const { AppStore } = this.props;
-    await AppStore.loadHubInfo();
+    await this.loadHubInfo();
     this.setState({ isLoading: false });
   }
 
-  render() {
-    const { AppStore } = this.props;
-    const { isLoading } = this.state;
+  async loadHubInfo() {
+    try {
+      window.localStorage.clear();
+      const tabInfo = await getCurrentTab();
+      const HubConfig = await getBlockConfig(
+        tabInfo.id,
+        'localStorage.getItem("blockstack-gaia-hub-config")'
+      );
+      const userConfig = await getBlockConfig(
+        tabInfo.id,
+        'localStorage.getItem("blockstack")'
+      );
+      window.localStorage.setItem('blockstack-gaia-hub-config', HubConfig);
+      window.localStorage.setItem('blockstack', userConfig);
+    } catch (err) {
+      this.setState({ hasError: true });
+      console.error(err);
+    }
+  }
 
-    if (AppStore.hasError) {
+  render() {
+    const { isLoading, hasError } = this.state;
+
+    if (hasError) {
       return (<ErrorScreen />);
     }
 
