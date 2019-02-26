@@ -34,7 +34,7 @@
       color: white;
     }
 
-    .disclaimer { width: 50%; }
+    .disclaimer { width: 80%; }
     .disclaimer--text {
       color: var(--faded);
       font-size: 10px;
@@ -50,8 +50,8 @@
 
     .logo {
       background-color: #E1E1E1;
-      width: 172px;
-      height: 172px;
+      width: 300px;
+      height: 300px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -60,9 +60,9 @@
 
     .logo--circle {
       background-color: white;
-      width: 80px;
-      height: 80px;
-      border-radius: 80px;
+      width: 150px;
+      height: 150px;
+      border-radius: 150px;
     }
 
     .main {
@@ -108,6 +108,10 @@
       transition: all .2s ease-in;
     }
 
+    .btn--secondary {
+      background-color: gray;
+    }
+
     button:hover {
       background-color: var(--primary-hover);
     }
@@ -139,7 +143,9 @@
       <section class="main">
         <div class="main--title"><h1>Blockstack<BR/> File<BR/> Explorer</h1></div>
         <div class="main--cta">
-          <a href="https://github.com/rehat101/blockstack-filebrowser-extension"><button>Github</button></a>
+          <a href="https://github.com/rehat101/blockstack-filebrowser-extension"><button>Install</button></a>
+          <a href="https://github.com/rehat101/blockstack-filebrowser-extension"><button class="btn--secondary">Github</button></a>
+
         </div>
       </section>
       <section class="section">
