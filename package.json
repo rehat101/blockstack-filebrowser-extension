@@ -1,7 +1,7 @@
 {
   "name": "blockstack-filebrowser-extension",
   "version": "0.0.0",
-  "description": "A chrome extension for blockstack",
+  "description": "A chrome extension to explore blockstack's gaia hub",
   "scripts": {
     "dev": "node scripts/dev",
     "build": "node scripts/build",
@@ -37,7 +37,7 @@
     "webpack-httpolyglot-server": "^0.3.0"
   },
   "dependencies": {
-    "blockstack": "^18.2.1",
+    "blockstack": "https://github.com/rehat101/blockstack.js/tarball/master",
     "bluebird": "^3.5.3",
     "history": "^4.7.2",
     "mobx": "^5.9.0",
