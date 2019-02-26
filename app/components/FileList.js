@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Button from '../StyledComponents/button';
 import { Wrapper, WrapperHeader } from '../StyledComponents/grid';
 
 const List = styled.ul`
@@ -54,14 +53,13 @@ const FileList = ({ data }) => (
             >
               <Item>
                 <ItemName>{value}</ItemName>
-                <Size>5kb</Size>
+                <Size />
               </Item>
             </Link>
           ))
         }
       </List>
     </Wrapper>
-    { /* <Button color="#2523FF">Add File</Button> */ }
   </React.Fragment>
 );
 

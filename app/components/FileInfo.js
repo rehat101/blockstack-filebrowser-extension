@@ -25,6 +25,20 @@ const ItemValue = styled.span`
   word-break: break-all;
 `;
 
+const TextArea = styled.textarea`
+  white-space: pre-wrap;
+  width: 300px;
+  border: 0;
+  height: 200px;
+  color: white;
+  font-size: 12px;
+  word-break: break-all;
+  font-family: "Relative";
+  background-color: #0000004d;
+  padding: 20px;
+  resize: none;
+`;
+
 const FileInfo = ({ data, name }) => (
   <React.Fragment>
     <Wrapper>
@@ -39,6 +53,7 @@ const FileInfo = ({ data, name }) => (
           <ItemValue>{data.contentType}</ItemValue>
         </Item>
       </List>
+      <TextArea defaultValue={data.content.toString()} />
     </Wrapper>
     <Link to="/"><Button color="#606D73">Back</Button></Link>
   </React.Fragment>
