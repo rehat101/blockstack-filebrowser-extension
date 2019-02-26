@@ -1,10 +1,10 @@
 {
-  "version": "0.0.0",
+  "version": "1.0.0",
   "name": "blockstack-filebrowser-extension",
   "manifest_version": 2,
   "description": "A filebrowser for your gaia hub",
   "browser_action": {
-    "default_title": "React Chrome Extension Example",
+    "default_title": "",
     "default_popup": "popup.html"
   },
   "icons": {

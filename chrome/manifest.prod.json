@@ -1,10 +1,10 @@
 {
-  "version": "0.0.0",
-  "name": "react-chrome-extension-example",
+  "version": "1.0.0",
+  "name": "blockstack-filebrowser-extension",
   "manifest_version": 2,
-  "description": "Example for react-chrome-extension-boilerplate",
+  "description": "A filebrowser for your gaia hub",
   "browser_action": {
-    "default_title": "React Chrome Extension Example",
+    "default_title": "",
     "default_popup": "popup.html"
   },
   "icons": {
@@ -16,8 +16,17 @@
     "inject.html"
   ],
   "background": {
-    "page": "background.html"
+    "page": "background.html",
+    "persistent": false
   },
-  "permissions": [ "contextMenus", "tabs", "storage", "https://github.com/*" ],
-  "content_security_policy": "default-src 'self'; script-src 'self'; style-src * 'unsafe-inline'; img-src 'self' data:;"
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "storage",
+    "windows",
+    "activeTab",
+    "*://localhost/",
+    "<all_urls>"
+  ],
+  "content_security_policy": "default-src 'self'; script-src 'self' http://localhost:3000 https://localhost:3000 'unsafe-eval'; connect-src https://gaia.blockstack.org/ https://hub.blockstack.org/ ws://localhost:3000 http://localhost:3000 https://localhost:3000; style-src * 'unsafe-inline' 'self' blob:; img-src 'self' data:;"
 }
