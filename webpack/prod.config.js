@@ -1,14 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
-
-const customPath = path.join(__dirname, './customPublicPath');
 
 module.exports = {
   entry: {
-    todoapp: [customPath, path.join(__dirname, '../chrome/extension/todoapp')],
-    background: [customPath, path.join(__dirname, '../chrome/extension/background')],
-    inject: [customPath, path.join(__dirname, '../chrome/extension/inject')]
+    app: [path.join(__dirname, '../chrome/extension/app')],
+    background: [path.join(__dirname, '../chrome/extension/background')],
   },
   output: {
     path: path.join(__dirname, '../build/js'),
@@ -18,12 +14,6 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.IgnorePlugin(/[^/]+\/[\S]+.dev$/),
-    new webpack.optimize.UglifyJsPlugin({
-      comments: false,
-      compressor: {
-        warnings: false
-      }
-    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
@@ -37,21 +27,12 @@ module.exports = {
     rules: [{
       test: /\.js$/,
       loader: 'babel-loader',
-      exclude: /node_modules/,
-      query: {
-        presets: ['react-optimize']
-      }
+      exclude: /node_modules/
     }, {
       test: /\.css$/,
       use: [
         'style-loader',
-        'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-        {
-          loader: 'postcss-loader',
-          options: {
-            plugins: () => [autoprefixer]
-          }
-        }
+        'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
       ]
     }]
   }
