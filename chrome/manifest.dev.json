@@ -22,8 +22,6 @@
   "permissions": [
     "contextMenus",
     "tabs",
-    "storage",
-    "windows",
     "activeTab",
     "*://localhost/",
     "<all_urls>"

@@ -1,5 +1,5 @@
-const tasks = require('./tasks');
 const createWebpackServer = require('webpack-httpolyglot-server');
+const tasks = require('./tasks');
 const devConfig = require('../webpack/dev.config');
 
 tasks.replaceWebpack();

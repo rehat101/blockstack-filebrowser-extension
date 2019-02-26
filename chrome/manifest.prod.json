@@ -22,10 +22,7 @@
   "permissions": [
     "contextMenus",
     "tabs",
-    "storage",
-    "windows",
     "activeTab",
-    "*://localhost/",
     "<all_urls>"
   ],
   "content_security_policy": "default-src 'self'; script-src 'self' 'unsafe-eval'; connect-src https://gaia.blockstack.org/ https://hub.blockstack.org/ style-src * 'unsafe-inline' 'self' blob:; img-src 'self' data:;"
