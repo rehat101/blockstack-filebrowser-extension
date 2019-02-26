@@ -21,8 +21,16 @@ export const getBlockConfig = (tabId, script) => {
   return new Promise((resolve, reject) => {
     chrome.tabs.executeScript(tabId, { code: script },
       (res) => {
+        const lastErr = chrome.runtime.lastError;
+
+        if (lastErr) {
+          reject(new Error(lastErr.message));
+          return;
+        }
+
         if (!res[0]) {
           reject(new Error('Cannot find gaia hub config'));
+          return;
         }
 
         resolve(res.pop());
