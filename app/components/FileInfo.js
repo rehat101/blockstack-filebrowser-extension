@@ -32,6 +32,7 @@ const TextArea = styled.textarea`
   height: 200px;
   color: white;
   font-size: 12px;
+  font-family: inherit;
   word-break: break-all;
   font-family: "Relative";
   background-color: #0000004d;
