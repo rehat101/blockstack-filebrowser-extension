@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title></title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
@@ -23,7 +23,7 @@
       --logo-base-size: 300px;
 
       --container-w-desktop: 55rem;
-      --container-w-mobile: 20rem;
+      --container-w-mobile: 25rem;
     }
 
     ::selection {
@@ -154,15 +154,21 @@
       margin-top: 10px;
     }
 
-    @media only screen and (min-width: 400px) and (max-width: 970px) {
-      .container {
-        margin: 2rem;
-        flex-direction: column;
-        width: var(--container-w-mobile)
+    @media only screen and (min-width: 320px) and (max-width: 970px) {
+
+      .logo {
+        transform: scale(0.9);
       }
 
-      body { font-size: 1.1rem; }
-      .left { margin-bottom: 2rem; }
+      .container {
+        margin: 1rem;
+        flex-direction: column;
+        width: var(--container-w-mobile);
+        align-items: left;
+      }
+
+      body { margin: 0; font-size: 1.1rem; }
+      .left { margin-bottom: 1.5rem; margin-right: 0; }
       .main--cta button { margin-bottom: 1rem; }
     }
 
@@ -218,13 +224,11 @@
         <div class="section--title"><h2>What is this?</h2></div>
         <div class="section--content">
           <p>
-            Blockstack FE<sup class="footnote"><a href="#ft-2" rel="footnote">[2]</a></sup> is an extension built on Google Chrome which shows how dApps built on top of Blockstack are storing your data and the inner contents.
-          </p>
-          <BR/>
-          <p>
-            Please note: This extension only works on pages that uses Blockstack's provided storage system.
+            Blockstack FE<sup class="footnote"><a href="#ft-2" rel="footnote">[2]</a></sup> is a Google Chrome extension which shows your data on Blockstack. This extension only works on pages that uses Blockstack's provided storage system.
             <sup class="footnote"><a href="#ft-3" rel="footnote">[3]</a></sup>
           </p>
+          <BR/>
+
         </div>
       </section>
       <section class="section footnote--container">
