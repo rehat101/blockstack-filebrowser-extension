@@ -47,9 +47,9 @@
     }
 
     .container {
+      display: flex;
       margin: 6rem;
       width: var(--container-w-desktop);
-      display: flex;
     }
 
     .left {
@@ -57,7 +57,6 @@
     }
 
     .logo {
-      background-color: #5A5E64;
       width: var(--logo-base-size);
       height: var(--logo-base-size);
       display: flex;
@@ -130,6 +129,31 @@
       text-decoration: none;
     }
 
+    .footnote a {
+      font-weight: 500;
+      color: #6e41e0;
+      text-decoration: none;
+    }
+
+    .footnote a:hover {
+      text-decoration: underline;
+    }
+
+    .footnote--container {
+      font-size: 0.8rem;
+      border-top: 1px dashed var(--faded);
+      color: var(--faded);
+    }
+
+    .footnote--container p {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    .footnote--container p:first-child {
+      margin-top: 10px;
+    }
+
     @media only screen and (min-width: 400px) and (max-width: 970px) {
       .container {
         margin: 2rem;
@@ -174,26 +198,39 @@
       </section>
       <section class="section">
         <div class="main--cta">
-          <a href="https://github.com/rehat101/blockstack-filebrowser-extension"><button>Install Extension</button></a>
-          <a href="https://github.com/rehat101/blockstack-filebrowser-extension"><button class="btn--secondary">Github</button></a>
-
+          <a href="https://github.com/rehat101/blockstack-filebrowser-extension">
+            <button>Install Extension</button>
+          </a>
+          <a href="https://github.com/rehat101/blockstack-filebrowser-extension">
+            <button class="btn--secondary">Github</button>
+          </a>
         </div>
       </section>
       <section class="section">
         <div class="section--title"><h2>Motivation</h2></div>
         <div class="section--content">
           <p>
-            Every investigation begins with ideas that are further developed and inspired to address a variety of situations and circumstances. Research is also a systematic effort to get answers to a certain problem. Sakaran (2000) defined research as a process for finding a solution to a problem after making a deep analysis and conducting studies of relevant factors.
+            Decentralization empowers people to apply their resources within their rights only, with out the involvement of a third party. If you take Blockstack, you are feeling free to use your own resources and you are the only owner who has the authority to access your data. However, there isn't a visual interface of what your data looks like and what dApps<sup class="footnote"><a href="#ft-1" rel="footnote">[1]</a></sup> are doing with it.
           </p>
         </div>
       </section>
       <section class="section">
-        <div class="section--title"><h2>A Chrome Extension</h2></div>
+        <div class="section--title"><h2>What is this?</h2></div>
         <div class="section--content">
           <p>
-             In general, research is a method designed to ensure that the information obtained is reasonable and supported by the quantitative and qualitative data, and that involves a systematic process. It includes the process of designing research methods, collecting and describing data.
+            Blockstack FE<sup class="footnote"><a href="#ft-2" rel="footnote">[2]</a></sup> is an extension built on Google Chrome which shows how dApps built on top of Blockstack are storing your data and the inner contents.
+          </p>
+          <BR/>
+          <p>
+            Please note: This extension only works on pages that uses Blockstack's provided storage system.
+            <sup class="footnote"><a href="#ft-3" rel="footnote">[3]</a></sup>
           </p>
         </div>
+      </section>
+      <section class="section footnote--container">
+        <p id="ft-1">1. Decentralized Applications</p>
+        <p id="ft-2">2. File Extension</p>
+        <p id="ft-3">3. Gaia Hub</p>
       </section>
     </div>
   </main>
