@@ -32,6 +32,7 @@ const TextArea = styled.textarea`
   height: 200px;
   color: white;
   font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   word-break: break-all;
   font-family: "Relative";
   background-color: #0000004d;
