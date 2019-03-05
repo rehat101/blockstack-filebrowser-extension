@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "blockstack-filebrowser-extension",
   "manifest_version": 2,
   "description": "A chrome extension for exploring blockstack's gaia hub",
